@@ -1,0 +1,60 @@
+<div>
+    <div class="row" style="background: black;" width="100%">
+        <center>
+            <img src="images/logo-small.png" height="100%">
+        </center>
+    </div>
+    <!--<div class="row" >
+        <br>
+    </div>-->
+    <div class="row" style="background: lightgrey" width="100%">
+        <br>
+        <div class="col-md-5">
+            
+                <div id="map" style="width:400px;height:400px;background:yellow"></div>
+
+                <script>
+                function myMap() {
+                // var myLatLng = {lat: -25.363, lng: 131.044};
+    
+                var mapOptions = {
+                    center: new google.maps.LatLng(13.063660, 80.239374),
+                    zoom: 15,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP 
+                }
+                var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(13.063660, 80.239374),
+                    map: map,
+                    label: {
+                        color: 'blue',
+                        fontWeight: 'bold',
+                        text: 'We are here',
+                    }
+                    // title: 'We are here'
+                    });
+
+                }
+                </script>
+
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4gDZWE79y5IbS7gI-IIJFO0ZpWOFdQNE&callback=myMap"
+                type="text/javascript"></script>
+                <br>
+        </div>
+        <div class="col-md-7">
+            <center>
+                <strong>
+                Commutatus, the latin word for change is what we believe in. The constancy and inevitability of change is <br> &nbsp; an everyday phenomenon. This principle is reflected in all of our work and the way we do things. We <br> &nbsp; constantly keep updating and improving our creations to conform to the latest technology and industry <br> &nbsp; standards. We aspire to be synonymous with awesome digital products. 
+                
+                    <br><br><br>
+                    Address: No:2 A, 2nd floor, Alsa Windsor, No.4 Kothari road,<br> off Sterling Road, Nungumbakkam, Chennai, Tamil Nadu 600034
+                    <br><br>Phone: 044 2828 2582
+                    <br><br>
+                    For more details click <a href="http://www.commutatus.com/" target="_blank">here</a>
+                </strong>
+            </center>
+
+        </div>
+        <br>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<div>
+    <div class="col-xs-10 col-sm-6 col-md-4 col-xs-offset-1 col-sm-offset-3 col-md-offset-4">
+    <form>
+    <div class="row" >
+        <h2>My ToDo List</h2>
+        <hr>
+    </div>
+    <div class="row" style="background-color: seashell">
+        
+        
+        <div class="col-md-8">
+
+            <h4>ToDo Title </h4><h5><i>(Click to see)</i></h5>
+        </div>
+        <div class="col-md-4">
+            <h4>ToDo Actions</h4>
+        </div>
+        
+    </div>
+    <hr>
+    <div class="row">
+        <div ng-repeat="todo in todos">
+            <div class="row">
+             
+                
+            
+
+            <div class="col-md-8" style="text-align: left">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                        <button ng-click="show(todo.todotitle,todo.tododesc,todo.tododone)" class="btn btn-warning">{{ todo.todotitle }}</button>
+
+                         <!-- The actual modal template, just a bit o bootstrap -->
+                        <script type="text/ng-template" id="modal.html">
+                            <div class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title" ng-model="modeltitle">{{modeltitle}}</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p ng-model="modeldesc">{{modeldesc}}</p>
+                                    
+                                    <p ng-model="modeldone">This task has been done upto {{modeldone}}%</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" ng-click="close()" class="btn btn-default" data-dismiss="modal">close</button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </script>
+
+                        <!--<p><i>{{ todo.todotitle }}</i></p>-->
+            </div>
+            <div class="col-md-4" style="text-align: center">            
+                        <a href="#/edittodo/{{todo._id}}" ng-click="edittodo(todo)"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                        <a href ng-click="removeTodo(todo)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                        <!--<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>-->
+            </div>      
+            <br>
+            </div>    
+             <!--<div class="row">           
+                        <uib-progressbar animate="true" max="100" ng-value="todo.tododone" type="success"><b>{{todo.tododone}}%</b></uib-progressbar>
+                        <hr>
+             </div>-->
+             <div class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{todo.tododone}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( todo.tododone + '%' )}">
+                {{todo.tododone}}% done
+                </div>
+            </div>
+            <hr>
+            <!--<div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{todo.user.ToDoDone}}" aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( todo.user.ToDoDone + '%' ) }">
+                    {{todo.user.ToDoDone}}
+                </div>
+
+            </div>-->
+        </div>
+    </div>
+    </form>
+    </div>
+</div>
